@@ -71,7 +71,7 @@ char	**merci_la_norme(char **finalstr)
 	return (finalstr);
 }
 
-char	**ft_split(char *str)
+char	**ft_split(char *str, char *charset)
 {
 	char *charset; 
 	char	**finalstr;
@@ -79,7 +79,6 @@ char	**ft_split(char *str)
 	int		j;
 	int		size;
 
-	charset = "\n\t\r\v ";
 	i = 0;
 	j = 0;
 	size = ft_is_word(str, charset);
@@ -100,19 +99,4 @@ char	**ft_split(char *str)
 	}
 	finalstr[j] = 0;
 	return (finalstr);
-}
-#include <stdio.h>
-
-int	main(int argc, char **argv)
-{
-	int i;
-	char **str;
-	i = 0;
-
-	str = ft_split("salut\na\ttous\vje\rjsuis split                 ouais\n                    non");
-	while(str[i])
-	{
-		printf("%s\n", str[i]);
-		i++;
-	}
 }
